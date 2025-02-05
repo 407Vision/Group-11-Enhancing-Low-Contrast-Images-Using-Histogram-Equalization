@@ -1,8 +1,11 @@
+from google.colab import files
+import matplotlib.pyplot as plt
+import numpy as np
+import cv2
 !pip install opencv-python
 
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-from google.colab import files
 
-#uploaded = files.upload()
+# uploaded = files.upload()
+
+# Load a low-contrast grayscale image
+image = cv2.imread('low contrast image.png' cv2.IMREAD_GRAYSCALE)
