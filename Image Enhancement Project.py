@@ -25,6 +25,17 @@ images = [image, hist_eq_image, clahe_image]
 plt.figure(figsize=(15, 5))
 for i in range(3):
     plt.subplot(1, 3, i+1)
+    # Ensure the image data is a NumPy array with a suitable data type
+    current_image = images[i]
+    if not isinstance(current_image, np.ndarray):  # Check if it's a NumPy array
+        print(f"Warning: Image at index {i} is not a NumPy array. Skipping.")
+        continue  # Skip this image if it's not a NumPy array
+
+    if current_image.dtype == object:  # If data type is 'object'
+        print(f"Warning: Image at index {i} has dtype 'object'. Attempting conversion to uint8.")
+        current_image = current_image.astype(np.uint8)  # Try converting to uint8
+
+    plt.imshow(current_image, cmap='gray')  # Display the processed or original image
     plt.title(titles[i])
     plt.axis('off')
 
