@@ -17,3 +17,4 @@ hist_eq_image = cv2.equalizeHist(image)
 # Create a CLAHE object with desired parameters
 clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
 clahe_image = clahe.apply(image)
+  
